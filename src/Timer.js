@@ -6,7 +6,8 @@ import TimerControl from './TimerControl';
 
 const Timer = (props) => {
 
-    const [currentTime, setCurrentTime] = useState(props.initialTime); 
+    const [currentTime, setCurrentTime] = props.changeTimeLeft; 
+    const [pomSetting, setPomSetting] = props.pomSetting; 
     const [currentStatus, setCurrentStatus] = useState('stopped'); 
 
     // Used to control currentStatus state and button text
@@ -53,7 +54,7 @@ const Timer = (props) => {
         }
         return () => clearInterval(interval); 
 
-    }, [currentStatus, currentTime]); 
+    }, [currentStatus, currentTime, pomSetting]); 
 
     return(
         <div className="timer">

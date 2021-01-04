@@ -9,16 +9,8 @@ import Timer from './Timer';
 const App = () => {
 
     const [pomSetting, setPomSetting] = useState('pomodoro'); 
-    const [timeLeft, setTimeLeft] = useState('1500'); 
-
-    // let initialTime = 0;
-    // if (pomSetting === 'pomodoro') {
-    //     initialTime = 1500; 
-    // } else if (pomSetting === 'short') {
-    //     initialTime = 300; 
-    // } else if (pomSetting === 'long') {
-    //     initialTime = 900; 
-    // }
+    const [timeLeft, setTimeLeft] = useState(1500); 
+    
 
     // Runs when the pomSetting is updated in PomControl 
     // if the pomSetting is changed, the timeLeft must also update
@@ -34,14 +26,20 @@ const App = () => {
             setTimeLeft(900);
         }
 
-    }, pomSetting);
+    }, [pomSetting]);
+
+    // Control what happens when the timeLeft is changed 
 
     return (
         <div className="App">
         <PomControl
             changePomSetting={[pomSetting, setPomSetting]}
         />
-        <Timer initialTime={timeLeft} />
+        <Timer 
+            initialTime={timeLeft} 
+            changeTimeLeft={[timeLeft, setTimeLeft]}
+            pomSetting={[pomSetting, setPomSetting]}
+        />
     </div>
     );
 } 
