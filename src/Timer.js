@@ -9,7 +9,8 @@ const Timer = (props) => {
     const [currentTime, setCurrentTime] = useState(props.initialTime); 
     const [currentStatus, setCurrentStatus] = useState('stopped'); 
 
-    function toggleActive() {
+    // Used to control currentStatus state and button text
+    function toggleStatus() {
 
         const btn = document.querySelector('#toggleActiveBtn');
 
@@ -24,11 +25,13 @@ const Timer = (props) => {
 
     }
 
+    // Reset button functionality
     function clickReset() {
         setCurrentTime(props.initialTime); 
         setCurrentStatus('stopped');
     }
 
+    // currentTime state is in seconds, this formats it to MM:SS
     function calculateTimeLeft() {
         let minsLeft = Math.floor(currentTime / 60); 
         let secondsLeft = Math.floor(currentTime % 60) ; 
@@ -36,6 +39,7 @@ const Timer = (props) => {
         return `${minsLeft}:${secondsLeft}`; 
     }
 
+    // Maintains interval depending on currentStatus (active/stopped), time left
     useEffect(() => {
 
         let interval = null; 
@@ -59,7 +63,7 @@ const Timer = (props) => {
             </div>
 
             <div id="timerControls">
-                <button onClick={toggleActive} id="toggleActiveBtn">
+                <button onClick={toggleStatus} id="toggleActiveBtn">
                     {currentStatus === 'active' ? 'Stop' : 'Start'}    
                 </button>
                 

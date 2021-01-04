@@ -6,25 +6,45 @@ import './App.css';
 import PomControl from './PomControl'; 
 import Timer from './Timer'; 
 
-class App extends React.Component {
-  
-  // constructor(props) {
-  //   super(props); 
-  //   this.state = {
-  //     pomSetting: 'pom', 
-  //     initialTime: 25,
-  //     timeLeft: 25
-  //   }; 
-  // }
-  
-  render() {
+const App = () => {
+
+    const [pomSetting, setPomSetting] = useState('pomodoro'); 
+    const [timeLeft, setTimeLeft] = useState('1500'); 
+
+    // let initialTime = 0;
+    // if (pomSetting === 'pomodoro') {
+    //     initialTime = 1500; 
+    // } else if (pomSetting === 'short') {
+    //     initialTime = 300; 
+    // } else if (pomSetting === 'long') {
+    //     initialTime = 900; 
+    // }
+
+    // Runs when the pomSetting is updated in PomControl 
+    // if the pomSetting is changed, the timeLeft must also update
+    useEffect(() => {
+
+        if (pomSetting === 'pomodoro') {
+            setTimeLeft(1500);
+        }
+        else if (pomSetting === 'short') {
+            setTimeLeft(300);
+        }
+        else if (pomSetting === 'long') {
+            setTimeLeft(900);
+        }
+
+    }, pomSetting);
+
     return (
-      <div className="App">
-        <PomControl  />
-        <Timer initialTime="30" />
-      </div>
+        <div className="App">
+        <PomControl
+            changePomSetting={[pomSetting, setPomSetting]}
+        />
+        <Timer initialTime={timeLeft} />
+    </div>
     );
-  } 
-}
+} 
+
 
 export default App;

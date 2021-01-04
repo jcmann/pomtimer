@@ -1,23 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import App from './App'; 
 
-class PomControl extends React.Component {
+const PomControl = (props) => {
 
-    render() {
-        return (
-            <section className="pomControl">
-                <button>
-                    Pomodoro
-                </button>
-                <button>
-                    Short Break
-                </button>
-                <button>
-                    Long Break
-                </button>
-            </section>
-        )
-    }
+    const [pomSetting, setPomSetting] = props.changePomSetting; 
+
+    return (
+        <section className="pomControl">
+            <button onClick={() => setPomSetting('pomodoro')} >
+                Pomodoro
+            </button>
+            <button onClick={() => setPomSetting('short')}>
+                Short Break
+            </button>
+            <button onClick={() => setPomSetting('long')}>
+                Long Break
+            </button>
+        </section>
+    );
+    
 
 }
 
