@@ -7,8 +7,8 @@ import TimerControl from './TimerControl';
 const Timer = (props) => {
 
     const [currentTime, setCurrentTime] = props.changeTimeLeft; 
-    const [pomSetting, setPomSetting] = props.pomSetting; 
-    const [currentStatus, setCurrentStatus] = useState('stopped'); 
+    const [pomSetting, setPomSetting] = props.pomSetting;  
+    const [currentStatus, setCurrentStatus] = props.currentStatus; 
 
     // Used to control currentStatus state and button text
     function toggleStatus() {
@@ -39,22 +39,6 @@ const Timer = (props) => {
 
         return `${minsLeft}:${secondsLeft}`; 
     }
-
-    // Maintains interval depending on currentStatus (active/stopped), time left
-    useEffect(() => {
-
-        let interval = null; 
-
-        if (currentStatus === 'active' && currentTime > 0) {
-            interval = setInterval(() => {
-                setCurrentTime(currentTime - 1);
-            }, 1000); 
-        } else {
-            clearInterval(interval); 
-        }
-        return () => clearInterval(interval); 
-
-    }, [currentStatus, currentTime, pomSetting]); 
 
     return(
         <div className="timer">
