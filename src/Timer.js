@@ -6,56 +6,33 @@ import TimerControl from './TimerControl';
 
 const Timer = (props) => {
 
-    const [currentTime, setCurrentTime] = props.changeTimeLeft; 
+    const [timeLeft, setTimeLeft] = props.changeTimeLeft; 
     const [pomSetting, setPomSetting] = props.pomSetting;  
     const [currentStatus, setCurrentStatus] = props.currentStatus; 
-
-    // Used to control currentStatus state and button text
-    function toggleStatus() {
-
-        const btn = document.querySelector('#toggleActiveBtn');
-
-        if (currentStatus === 'stopped') {
-            setCurrentStatus('active'); 
-            btn.innerHTML = "Stop"; 
-        }
-        else { // if currentStatus === 'active' 
-            setCurrentStatus('stopped'); 
-            btn.innerHTML = "Start"; 
-        }
-
-    }
-
-    // Reset button functionality
-    function clickReset() {
-        setCurrentTime(props.initialTime); 
-        setCurrentStatus('stopped');
-    }
+    const initialTime = props.initialTime; 
 
     // currentTime state is in seconds, this formats it to MM:SS
     function calculateTimeLeft() {
-        let minsLeft = Math.floor(currentTime / 60); 
-        let secondsLeft = Math.floor(currentTime % 60) ; 
+        let minsLeft = Math.floor(timeLeft / 60); 
+        let secondsLeft = Math.floor(timeLeft % 60) ; 
 
         return `${minsLeft}:${secondsLeft}`; 
     }
 
     return(
-        <div className="timer">
+        <section className="timer">
 
             <TimerDisplay
                 calculateTimeLeft={calculateTimeLeft}
             /> 
 
-            <div id="timerControls">
-                <button onClick={toggleStatus} id="toggleActiveBtn">
-                    {currentStatus === 'active' ? 'Stop' : 'Start'}    
-                </button>
-                
-                <button onClick={clickReset}>Reset</button>
-            </div>
+            <TimerControl 
+                changeCurrentStatus={[currentStatus, setCurrentStatus]}
+                timeLeft={[timeLeft, setTimeLeft]}
+                initialTime={initialTime}
+            />
 
-        </div>
+        </section>
 
     );
     

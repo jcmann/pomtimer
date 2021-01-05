@@ -53,7 +53,7 @@ const App = () => {
     
 
     return (
-        <div className="App">
+        <section className="App">
         <PomControl
             changePomSetting={[pomSetting, setPomSetting]}
         />
@@ -63,7 +63,7 @@ const App = () => {
             pomSetting={[pomSetting, setPomSetting]}
             currentStatus={[currentStatus, setCurrentStatus]}
         />
-    </div>
+    </section>
     );
 } 
 
