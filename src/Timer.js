@@ -43,9 +43,9 @@ const Timer = (props) => {
     return(
         <div className="timer">
 
-            <div id="timerDisplay">
-                {calculateTimeLeft()}
-            </div>
+            <TimerDisplay
+                calculateTimeLeft={calculateTimeLeft}
+            /> 
 
             <div id="timerControls">
                 <button onClick={toggleStatus} id="toggleActiveBtn">
