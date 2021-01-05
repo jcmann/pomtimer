@@ -1,3 +1,11 @@
+:root {
+  --lightRed: #F07474; 
+  --darkRed: #8A0E0E; 
+
+  --lightBlue: #2BA6CB; 
+  --darkBlue: #155263; 
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -7,7 +15,57 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+main {
+  width: 70%; 
+  text-align: center; 
+  margin: auto; 
+}
+
+button {
+  font-weight: bold; 
+
+  border: 3px solid black; 
+  border-radius: 1em; 
+
+  margin: 0 1em; 
+  padding: 1em; 
+}
+
+/*************************************
+Pom Control 
+*************************************/
+
+.pomControl {
+  margin: 1em 0; 
+}
+
+.pomControl button {
+  background-color: var(--lightBlue); 
+  color: white; 
+
+  border-color: var(--darkBlue); 
+}
+
+/*************************************
+        Timer Display
+*************************************/
+#timerDisplay {
+  font-family: "Lucida Sans Typewriter", monospace; 
+  font-size: 3em; 
+  margin-bottom: 0.33em; 
+}
+
+/*************************************
+        Timer Controls
+*************************************/
+#resetBtn {
+  background-color: lightgray; 
+}
+
+.btnStart {
+  background-color: lightgreen; 
+}
+
+.btnStop {
+  background-color: red; 
 }

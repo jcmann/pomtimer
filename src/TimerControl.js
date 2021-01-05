@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 
 const TimerControl = (props) => {
@@ -12,8 +12,9 @@ const TimerControl = (props) => {
         const btn = document.querySelector('#toggleActiveBtn');
 
         if (currentStatus === 'stopped') {
-            setCurrentStatus('active'); 
+            setCurrentStatus('active');         
             btn.innerHTML = "Stop"; 
+            
         }
         else { // if currentStatus === 'active' 
             setCurrentStatus('stopped'); 
@@ -21,6 +22,16 @@ const TimerControl = (props) => {
         }
 
     }
+
+    // Controls the color of the start button 
+    useEffect(() => {
+
+        const btn = document.querySelector('#toggleActiveBtn');
+
+        btn.classList.toggle("btnStart")
+        btn.classList.toggle("btnStop")
+        
+    }, [currentStatus]); 
 
     // Reset button functionality
     function clickReset() {
@@ -32,11 +43,17 @@ const TimerControl = (props) => {
         <div id="timerControls">
             <button 
                 onClick={toggleStatus}              
-                id="toggleActiveBtn">
+                id="toggleActiveBtn"
+                className="btnStop">
                 {currentStatus === 'active' ? 'Stop' : 'Start'}    
             </button>
             
-            <button onClick={clickReset}>Reset</button>
+            <button 
+                onClick={clickReset}
+                id="resetBtn"
+            >
+                Reset
+            </button>
         </div>
     );
     

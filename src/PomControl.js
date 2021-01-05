@@ -8,13 +8,20 @@ const PomControl = (props) => {
 
     return (
         <section className="pomControl">
-            <button onClick={() => setPomSetting('pomodoro')} >
+            <button 
+                onClick={() => setPomSetting('pomodoro')} 
+                
+            >
                 Pomodoro
             </button>
-            <button onClick={() => setPomSetting('short')}>
+            <button 
+                onClick={() => setPomSetting('short')}
+            >
                 Short Break
             </button>
-            <button onClick={() => setPomSetting('long')}>
+            <button 
+                onClick={() => setPomSetting('long')}
+            >
                 Long Break
             </button>
         </section>

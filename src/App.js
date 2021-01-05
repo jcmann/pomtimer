@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {useEffect, useState} from 'react'; 
 
-import './App.css';
 import PomControl from './PomControl'; 
 import Timer from './Timer'; 
 
@@ -66,6 +65,5 @@ const App = () => {
     </section>
     );
 } 
-
 
 export default App;
