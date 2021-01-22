@@ -11,10 +11,15 @@ const Timer = (props) => {
     const [currentStatus, setCurrentStatus] = props.currentStatus; 
     const initialTime = props.initialTime; 
 
-    // currentTime state is in seconds, this formats it to MM:SS
+    // currentTime state is in seconds, this formats it to MM:SS using regex
     function calculateTimeLeft() {
-        let minsLeft = Math.floor(timeLeft / 60); 
-        let secondsLeft = Math.floor(timeLeft % 60) ; 
+        let minsLeft = Math.floor(timeLeft / 60) + ''; 
+        let secondsLeft = Math.floor(timeLeft % 60) + ''; 
+
+        // Assures seconds displays two digit formatting
+        if (secondsLeft.length < 10) {
+            secondsLeft = secondsLeft.padStart(2, '0'); 
+        }
 
         return `${minsLeft}:${secondsLeft}`; 
     }
