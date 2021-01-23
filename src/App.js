@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {useEffect, useState} from 'react'; 
+import {useEffect, useState, useLayoutEffect} from 'react'; 
 
 import PomControl from './PomControl'; 
 import Timer from './Timer'; 
@@ -49,8 +49,19 @@ const App = () => {
         return () => clearInterval(interval); 
 
     }, [currentStatus, timeLeft, pomSetting]);
-    
 
+    // Alert pop up when timeLeft reaches 0 
+    /* Currently, the way alert works in the browser makes this pop up 
+    // before this element re-renders, pausing the browser, and upon
+    // closing the alert, it goes away
+    // Making this an actual sound alert is a WIP :)
+    */ 
+    useEffect(() => {
+        if (timeLeft == 0) {
+            alert("Time's up! :)"); 
+        }
+    }, [timeLeft]);
+    
     return (
         <section className="App">
         <PomControl
