@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/pomtimer/static/css/main.9f4522ad.chunk.css",
-    "main.js": "/pomtimer/static/js/main.babbd504.chunk.js",
-    "main.js.map": "/pomtimer/static/js/main.babbd504.chunk.js.map",
+    "main.css": "/pomtimer/static/css/main.944815eb.chunk.css",
+    "main.js": "/pomtimer/static/js/main.13a17334.chunk.js",
+    "main.js.map": "/pomtimer/static/js/main.13a17334.chunk.js.map",
     "runtime-main.js": "/pomtimer/static/js/runtime-main.20876971.js",
     "runtime-main.js.map": "/pomtimer/static/js/runtime-main.20876971.js.map",
     "static/js/2.b6d1b7c8.chunk.js": "/pomtimer/static/js/2.b6d1b7c8.chunk.js",
     "static/js/2.b6d1b7c8.chunk.js.map": "/pomtimer/static/js/2.b6d1b7c8.chunk.js.map",
     "index.html": "/pomtimer/index.html",
-    "static/css/main.9f4522ad.chunk.css.map": "/pomtimer/static/css/main.9f4522ad.chunk.css.map",
+    "static/css/main.944815eb.chunk.css.map": "/pomtimer/static/css/main.944815eb.chunk.css.map",
     "static/js/2.b6d1b7c8.chunk.js.LICENSE.txt": "/pomtimer/static/js/2.b6d1b7c8.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.20876971.js",
     "static/js/2.b6d1b7c8.chunk.js",
-    "static/css/main.9f4522ad.chunk.css",
-    "static/js/main.babbd504.chunk.js"
+    "static/css/main.944815eb.chunk.css",
+    "static/js/main.13a17334.chunk.js"
   ]
 }
